@@ -576,11 +576,11 @@ function notesFunction() {
 			console.log(finalWords);
 			removeWord = notesContent.innerHTML.replace(finalWords, "");
 			console.log(removeWord);
-			notesContent.innerHTML = removeWord;
+			notesContent.innerHTML = removeWord;  // store remove words 
 			
-			spanElem = document.createElement("span");
+			spanElem = document.createElement("span"); // creating spanElements span
 	
-            addClass = document.createAttribute("class");
+            addClass = document.createAttribute("class"); //
         	addClass.value = "keywords-test";
 	
         	spanElem.setAttributeNode(addClass);
@@ -591,8 +591,12 @@ function notesFunction() {
 	
 	        seleElem = document.getElementsByClassName("keywords-test")[0];
 	        seleElem.style.color = 'red';
-	
 			
+			useContent = document.getElementById("useContent");
+	
+			//useContent.innerHTML = notesContent.innerHTML;
+			
+			console.log(notesContent.innerHTML);
 		}
 		
 		else {
