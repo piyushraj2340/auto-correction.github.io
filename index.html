@@ -1,0 +1,350 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="testing.css">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css" integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>auto-correction</title>
+	<style>
+	
+	</style>
+  </head>
+  
+    <body>
+	   <header id="header">
+	       <div id="logo-siteName">
+		        <a href="index.html">
+		            <img id="logo" src="assets\media\auto-correction.png" alt="logo auto-correction">
+		            <span id="siteName">auto-correction</span>
+			   </a>
+		   </div>
+		   <div class="menu" onclick="menuFunction(this)">
+			    <div class="menu-bar bar1"></div>
+			    <div class="menu-bar bar2"></div>
+			    <div class="menu-bar bar3"></div>
+		   </div>
+		   
+		   <nav id="nav">
+		       <ul>
+			       <a href="javascript:void(0)" onclick="alert('working on it')"><li>Notes</li></a>
+			       <a href="javascript:void(0)" onclick="alert('working on it')"><li>Time Table</li></a>
+			       <a href="javascript:void(0)" onclick="alert('working on it')"><li>To Do List</li></a>
+				   <a href="javascript:void(0)" onclick="dictationOpen()"><li>Text To Speech</li></a>
+			       <a href="javascript:void(0)" onclick="alert('working on it')"><li>About Me</li></a>
+			   </ul>
+		   </nav>
+	   </header>
+	   
+	   
+	   <div id="dictation">
+	   
+	     <span class="close" onclick="dictationClose()">&times;</span>  <!--closing the #dictation penal -->
+		 
+	       <div class="control-holder selectList" style="width: auto">
+			 <div class="range">
+			    <select name="" id="voiceList" class="select"></select> <!-- select the voice list -->
+			 </div>
+	       </div>
+		 
+		 <div class="control-holder volume">
+		     <p>volume : <span class="value"></span></p>
+			 <div class="range">
+			    <input type="range" min="0" value="1" step="0.1" max="1" id="volume" class="slider"> <!-- volume range slide -->
+			 </div>
+	     </div>
+		 
+		 <div class="control-holder rate">
+		     <p>Rate : <span class="value"></span></p>
+			 <div class="range">
+			    <input type="range" min="0.1" step="0.1" value="0.9" max="10.0" id="rate" class="slider"> <!-- rate or speed range slide -->
+			 </div>			 
+	     </div>
+		 
+		 <div class="control-holder pitch">
+		     <p>Pitch : <span class="value"></span></p>
+			 <div class="range">
+			    <input type="range" min="0.0" step="0.1" value="0" max="2.0" id="pitch" class="slider"> <!-- pitch range slide -->
+			 </div>			 
+	     </div>
+		 
+		<div class="control-holder hold-numbWord" >
+		     <p>Number of Words : <span class="value"></span></p>
+			 <div class="range">
+			    <input type="number" id="numbWord" class="numbWord" placeholder="Number of words" max="20" value="" min="0"> <!-- numbers of words to be dictate -->
+			 </div>			 
+	     </div>
+		
+        <div id="testPanelControl">		
+		  <!-- <div class="testPanel">
+			 <div class="testPanel-item">
+			    <span class="countNumb">1.</span>
+			    <input type="text" id="inputSpeech" class="inputSpeech" placeholder="Enter the word"> 
+				<span class="speechOutput fas fa-volume-up speak"></span>
+			 </div>			 
+	      </div> -->
+		</div>  
+		
+		 <div class="actionPanel">
+		   <div class="actionGroup">
+		    <div class="bottom bottom-previous">
+                <button>Previous Question</button>			
+		    </div>
+		   </div>
+		   
+		   <div class="actionGroup">
+		    <div class="bottom bottom-start-fnish">
+                <button id="testStart" onclick="testFunction()">Start The Test</button>			
+                <button id="testStop" onclick="alert('working')">Stop The Test</button>			
+		    </div>
+		   </div>
+		   
+		   <div class="actionGroup">
+		    <div class="bottom bottom-next">
+                <button id="butNext" onclick="creatInputSpeech()" disabled>Next Question</button>			
+		    </div>
+		   </div>
+		 
+		 </div>
+		 
+	   </div>
+	   
+	   <div id="login-form">
+	     <form>
+		       <p id="alert">User Id and Password is incorrect</p>
+		       <input type="text" id="userid" placeholder="User Id">  
+		       <input type="password" id="user-pasd" placeholder="Password">
+			   <button type="button" onclick="loginFunction()">Log In</button>
+		 </form>
+	   </div>
+	   
+	   
+	   
+	   
+	<main id="content">
+	
+	   <aside id="aside-left">
+	       <div class="input-field">
+	           <input type="text" id="search-left" placeholder="searching..." onkeyup="filterFunctionLeft()">
+			   <span title="total number of words" class="label"></span>
+	       </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Example</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span>Example</span>  <i class="fas fa-volume-up speak"></i></li>
+		         <li><span>Example</span>  <i class="fas fa-volume-up speak"></i></li>
+		         <li><span>Example</span>  <i class="fas fa-volume-up speak"></i></li>
+		      </ul>
+		   </div>
+		
+		   <div class="accordion-container">
+			   <button class="btn">piyush</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+	   </aside>
+
+       <aside id="aside-right">
+	   
+	       <div class="input-field">
+	           <input type="text" id="search-right" placeholder="searching..." onkeyup="filterFunctionRight()">
+	           <span title="total number of words" class="label"></span>
+	       </div> 
+				
+	       <div class="accordion-container">
+			   <button class="btn">Example</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span>Example</span>  <i class="fas fa-volume-up speak"></i></li>
+		         <li><span>Example</span>  <i class="fas fa-volume-up speak"></i></li>
+		         <li><span>Example</span>  <i class="fas fa-volume-up speak"></i></li>
+		      </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Compositions</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Linguistic</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Intrapersonal</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Commercial</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Curve</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Zenith</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Channeled</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Hindrance</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Initiates</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Assigning</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Cues</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Procedures</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Interpreting</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		   
+		   <div class="accordion-container">
+			   <button class="btn">Memoranda</i></button>
+			   <i class="fas fa-volume-up speak"></i>
+		   </div>
+		   
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div>
+		
+		   <!-- <button class="btn accordion-right"><span></span>  <i class="fas fa-volume-up speak"></i></button></button>
+		   <div class="panel">
+		       <ul>
+		         <li><span></span>  <i class="fas fa-volume-up speak"></i></li>
+		       </ul>
+		   </div> -->
+	   </aside>	   
+    </main>
+		
+	</body>
+	
+	<script>
+      
+	</script>
+	
+	<script src="testing.js">
+	</script>
+    
+</html>

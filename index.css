@@ -1,0 +1,677 @@
+@font-face {
+	font-family: siteName;
+	src: url(assets/fonts/sitename.ttf);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 1% 2%;
+	font-family: arial;
+	background-color: lightblue;
+}
+
+header {
+	height: auto;
+	width: 100%;
+	background-color: #65a6bd;
+	border-radius: 4px;
+	position: static;
+	top: 0;
+	transition: max-height 30s ease-out;
+	overflow: hidden;
+}
+
+header::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#logo-siteName {
+	padding: 0px 5px;
+	margin-left: 10px;
+	width: 48%;
+	height: auto;
+	display: inline-block;
+}
+
+#logo {
+	width: 50px;
+	height: 50px;
+	margin: 5px 0;
+}
+
+#siteName {
+	font-size: 25px;
+	line-height: 65px;
+	display: inline-block;
+	color: #fff;
+	font-family: siteName;
+	position: absolute;
+	transition: 0.4s ease-out;
+}
+
+#siteName:hover {
+	color: #99d746;
+}
+
+.menu {
+	width: auto;
+	float: right;
+	position: relative;
+	right: 10px;
+	top: 20px;
+	padding: 7px 5px;
+    background-color: transparent;
+	border: 1px solid #fff;
+	line-height: 65px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.menu:active {
+	border: 1px solid #99d746;
+}
+
+.menu .menu-bar {
+	width: 28px;
+	height: 3px;
+	border-radius: 35%;
+	margin: 4px 0;
+	background-color: #000;
+	transition: 0.5s;
+}
+
+.change .bar1 {
+	transform: rotate(45deg) translate(5px, 5px);
+	background-color: #99d746 !important;
+}
+
+.change .bar2 {
+	opacity: 0;
+}
+
+.change .bar3 {
+	transform: rotate(-45deg) translate(5px, -5px);
+	background-color: #99d746 !important;
+}
+
+#nav {
+	width: 100%;
+	position: relative;
+	max-height: 0;
+	border: 5px solid #65a6bd;
+	text-align: center;
+	transition: max-height 0.3s ease-out;
+	overflow: hidden;
+	z-index: 5;
+}
+
+#nav ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	line-height: 65px;
+}
+
+#nav ul a {
+	display: block;
+	padding: 10px 14px;
+	text-decoration: none;
+	color: #fff;
+	transition: 0.5s ease;
+	font-size: 17px;
+	font-family: Arial;
+	border: 1px solid;
+	border-bottom: none;
+}
+
+#nav ul a:hover {
+	padding: 0px 14px;
+	color: #99d746;
+	font-size: 25px;
+	text-shadow: -1px 10px 3px #000;
+	border-radius: 40px 40px;
+	text-align: center;
+}
+
+#dictation {
+	width: auto;
+    background-color: #555;	
+	margin: 15px;
+	border-radius: 6px;
+	color: #fff;
+	text-align: center;
+	height: 0px;
+	/* height: auto; */
+	overflow: hidden;
+	transition: height 0.2s ease-out;
+	position: relative;
+	padding: 0px;
+	/* padding: 40px 0px 10px 0px; */
+	
+}
+
+#dictation .close {
+	position: absolute;
+	right: 20px;
+	top: 10px;
+	font-size: 30px;
+	color: #fff;
+	cursor: pointer;
+	opacity: 1;
+	transition: 0.3s ease;
+}
+
+#dictation .close:hover {
+	opacity: 0.7;
+	color: #99d746;
+}
+
+#dictation .control-holder {
+	display: inline-block;
+	margin: 5px;
+	width: auto;
+	float: left;
+	border: 1px solid lightblue;
+	padding: 3px 5px;
+	text-align: left;
+	background-color: #9a9a9a;
+	border-radius: 6px;
+}
+
+#dictation .control-holder p {
+	margin: 1px;
+    
+}
+
+#dictation .range {
+	width: 100%;
+}
+
+#dictation .range .slider {
+	-webkit-appearance: none;
+	width: 100%;
+	height: 10px;
+	background-color: #99d746;
+	outline: none;
+	-webkit-transition: 0.2s;
+	transition: 0.2s;
+	border-radius: 6px;
+	opacity: 0.7;
+	margin-top: 11px;
+}
+
+#dictation .range .slider:hover {
+	opacity: 1;
+}
+
+#dictation .range .slider::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	width: 20px;
+	height: 24px;
+	background-color: #fff;
+	cursor: pointer;
+	border-radius: 6px;
+}
+
+#dictation .range .numbWord , #dictation .range .select{
+	width: 100%;
+	border-radius: 4px;
+	padding: 0 5px;
+	height: 25px;
+	transition: 0.2s ease-out;
+}
+
+#dictation .range .numbWord:focus , #dictation .range .select:focus {
+	outline-color: #99d746;
+	border-color: #fff;
+}
+
+#dictation #testPanelControl {
+	display: block;
+	border: 1px solid lightblue;
+	text-align: center;
+	width: 100%;
+}
+
+#dictation .testPanel {
+	display: inline-block;
+	width: auto;
+	border: 2px solid lightblue;
+	clear: both;
+	text-align: center;
+	border-radius: 40% 40px;
+	margin: 10px 20px;
+}
+
+#dictation .testPanel-item {
+	width: 100%;
+	position: relative;
+}
+
+#dictation .testPanel-item .inputSpeech {
+	display: inline-block;
+	width: auto;
+	padding: 7px 35px;
+	font-size: 18px;
+	border-radius: 40% 40px;
+	transition: 0.5s;
+	border: 2px solid #555;
+}
+
+#dictation .testPanel-item .inputSpeech:focus {
+	outline: none;
+	border-color: #99d746;
+}
+
+#dictation .testPanel-item .countNumb {
+    position: absolute;
+	left: 6px;
+	top: 5px;
+	color: #000;
+	font-weight: 450;
+	font-size: 18px;
+}
+
+#dictation .testPanel-item .speechOutput {
+	position: absolute;
+	cursor: pointer;
+	color: #000;
+	top: 15px; 
+	right: 5px;
+	border: none;
+	background-color: transparent;
+}
+
+#dictation .testPanel-item .speechOutput:focus  {
+	color: lightblue;
+	border: none;
+	outline: none;
+}
+
+#dictation .testPanel-item .speechOutput:active { 
+    color: white;
+}
+
+#dictation .actionPanel {
+	width: 100%;
+	clear: both;
+	border: 1px solid lightblue;
+}
+
+#dictation .actionGroup {
+	display: block;
+	float: left;
+	width: 33%;
+	/* border: 2px solid lightblue; */
+	margin: 0 0.16%;
+}
+
+#dictation .actionGroup::after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+#dictation .bottom  {
+	display: inline-block;
+	margin-top: 3px;
+	width: 100%;
+	/* float: left; */
+	border: 1px solid lightblue;
+	padding: 3px 5px;
+	text-align: center;
+	background-color: #9a9a9a;
+	border-radius: 6px;
+}
+
+#dictation #testStop { 
+    display: none;
+}
+
+#dictation .bottom button {
+	height: 25px;
+	background-color: #fff;
+	color: #000;
+	transition: 0.2s ease-out;
+	border-radius: 4px;
+	cursor: pointer;
+	padding: 3px 7px;
+	width: 100%;
+	border: 1px solid #555;
+}
+
+#dictation .bottom button:focus {
+	outline-color: #99d746;
+	border-color: #fff;
+}
+
+#dictation .bottom button:active {
+	outline-color: #000;
+	background-color: #555;
+	color: #fff;
+	border-color: lightblue;
+}
+
+#dictation .selectList {
+	padding: 14px 5px;
+}
+
+#dictation .hold-numbWord {
+	width: 150px;
+	height: 54px;
+}
+
+#login-form {
+	background-color: transparent;
+	border: 1px solid transparent;
+	outline: 1px solid #fff;
+	transition: all 0.2s ease-out;
+	z-index: 3;
+	/* display: none; */
+}
+
+#login-form:focus, #login-form:active {
+	outline-color: #99d746;
+	border-color: #fff;
+}
+
+#login-form form {
+	border: 1px solid #fff;
+	padding: 40px 45px;
+	transition: all 0.2s ease-out;
+	margin: 1px 0;
+	background-color: #65a6bd;
+}
+
+#login-form form #alert {
+	color: red;
+	font-size: 14px;
+    text-align: center;	
+	display: none;
+}
+
+#login-form form:focus, #login-form form:active {
+	border-color: #99d746;
+}
+
+#login-form form input {
+	display: block;
+	width: 300px;
+	height: 40px;
+	margin: 10px 0;
+	color: #fff;
+	background-color: lightblue;
+	border: 1px solid #fff;
+	font-size: 17px;
+	transition: all 0.2s ease-out;
+	padding: 3px 5px;
+}
+
+#login-form form input::placeholder {
+	color: #fff;
+	transition: all 0.2s ease-out;
+}
+
+#login-form form input:active::placeholder {
+	color: #99d746;
+}
+
+#login-form form input:focus {
+	border: 1px solid #fff;
+	outline: 1px solid #fff;
+	background-color: #65a6bd;
+}
+
+#login-form form input:active {
+	outline: 1px solid #99d746;
+	color: #99d746;
+}
+
+#login-form form button {
+	width: 65px;
+	padding: 5px 2px;
+	cursor: pointer;
+	border: 1px solid #fff;
+	background-color: transparent;
+	transition: all 0.2s ease-out;
+	color: #fff;
+}
+
+#login-form form button:focus {
+	outline: 1px solid #fff;
+	background-color: #65a6bd;
+}
+
+#login-form form button:active {
+	outline: 1px solid #99d746;
+	color: #99d746;
+}
+
+#content {
+	display: none;
+}
+
+#aside-left, #aside-right {
+	width: 98%;
+	float: left;
+	margin: 0 1%;
+	max-height: 262px;
+	overflow: hidden;
+}
+
+.input-field {
+	position: relative;
+}
+ 
+#search-left, #search-right {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #5bc0de;
+	border-radius: 4px;
+	margin: 10px 0;
+	font-size: 17px;
+	transition: 0.5s ease-out;
+}
+
+#search-left:focus , #search-right:focus {
+	border-color: lightblue;
+	outline-color: #65a6bd;
+	background-color: lightblue;
+}
+
+.input-field .label {
+	position: absolute;
+	color: #000;
+	top: 12px;
+	right: 2px;
+	background-color: lightblue;
+	padding: 11px 16px;
+	border-radius: 4px;
+	z-index: 5;
+	border: 1px solid #fff;
+	outline: 1px solid #46b8da;
+}
+
+.accordion-container {
+	position: relative;
+}
+
+.btn, .plus {
+	display: block;
+	width: 100%;
+	padding: 12px 16px;
+	text-align: left;
+	background-color: #5bc0de;
+	border: 1px solid #46b8da;
+	color: #fff;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 18px;
+	transition: 0.4s;
+	position: relative;
+}
+
+
+.active, .btn:hover, .btn:focus {
+	background-color: #46b8da;
+	color: #444;
+	border-color: #fff;
+	outline-color: #65a6bd;
+}
+
+.btn::after {
+	content: "+";
+	float: right;
+	font-size: 20px;
+}
+
+
+.accordion-container .speak {
+	color: #fff;
+	position: absolute;
+	right: 45px;
+	top: 3px;
+	z-index: 5;
+	transition: all 0.2s ease;
+	padding: 14px;
+	border: 1px solid #fff;
+	border-radius: 4px;
+	cursor: pointer;
+	border-top: none;
+	border-bottom: none;
+	transition: 0.2s ease;
+}
+
+.accordion-container .speak:hover {
+	background-color: lightblue;
+}
+
+.accordion-container .speak:active {
+	background-color: #46b8da;
+}
+
+.accordion-left i:active , .accordion-right i:active {
+	color: #000;
+} 
+
+.active::after {
+	content: "-";
+}
+
+.plus::after {
+	content: "+";
+}
+
+.panel {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+.panel ul {
+	width: 99%;
+	background-color: #ccc;
+	margin: 0 10px 0 10px;
+	padding: 0;
+	list-style-type: none;
+}
+
+.panel li {
+	width: 100%;
+	padding: 12px;
+	margin: 0;
+	font-size: 17px;
+	position: relative;
+}
+
+.panel li i {
+	float: right;
+	position: absolute;
+	right: 20px;
+	top: 15px;
+	cursor: pointer;
+}
+
+.panel li i:active {
+	color: #fff;
+}
+
+.panel li:nth-child(even) {
+	background-color: #999;
+}
+
+
+
+@media screen and (min-width: 480px) {
+
+header {
+	height: 65px;
+	overflow: hidden;
+	transition: 0.5s;
+}
+	
+.menu {
+	display: none;
+}
+	
+#nav {
+	width: 48%;
+	float: right;
+	border: none;
+	position: relative;
+	right: -10px;
+	max-height: 65px; 
+}
+
+#nav ul {
+	border: none;
+}
+
+#nav ul a {
+	display: inline-block;
+	border: none;
+}
+
+#dictation {
+	/* height: 200px; */
+	
+}
+
+#dictation .control-holder {
+	float: none;
+	margin: 5px 2.5%;
+}
+
+#dictation .selectList {  
+	position: relative;
+	top: -15px;
+}
+
+#dictation .hold-numbWord {
+	position: relative;
+	top: -4px;
+}
+
+#dictation .bottom {
+	width: auto;
+}
+
+#login-form {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+#aside-left, #aside-right  {
+	width: 48%;
+}
+
+
+
+}
